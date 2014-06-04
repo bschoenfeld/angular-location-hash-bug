@@ -9,6 +9,7 @@
             
             <hr/>
             
+            <div>View: {{view}}</div>
             <div>Location Changed: {{locationChanged}}</div>
         </div>
         
@@ -34,16 +35,28 @@
                 };
                 
                 $scope.path = $location.path();
-                $scope.hash = $location.hash();
                 
                 if (!$location.hash()){
                     $location.hash('go');
                 }
+                $scope.hash = $location.hash();
+                
+                function onLocationChanged() {
+                    var view = $location.hash();
+                    switch(view) {
+                        case 'one':
+                            $scope.view = 1;
+                            break;
+                        case 'two':
+                            $scope.view = 2;
+                            break;
+                    }
+                    $scope.locationChanged += 1;
+                }
                 
                 $scope.locationChanged = 0;
-                $scope.$on('$locationChangeSuccess', function() {
-                    $scope.locationChanged += 1;
-                });
+                $scope.$on('$locationChangeSuccess', onLocationChanged);
+                onLocationChanged();
             }
         </script>
     </body>    
