@@ -35,3 +35,5 @@ Content:
 Path: foo#bar
 Hash:
 ```
+
+In some cases, Chrome on iOS displays the correct output. Reloading the page a couple times will cause the browser to show the incorrect output above.
