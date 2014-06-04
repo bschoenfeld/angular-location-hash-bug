@@ -30,6 +30,11 @@
                 };
                 
                 $scope.path = $location.path();
+                
+                if (!$location.hash()){
+                    $location.hash('go');
+                }
+                                
                 $scope.hash = $location.hash();
 
             }
