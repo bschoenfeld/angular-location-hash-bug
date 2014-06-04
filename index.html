@@ -29,12 +29,7 @@
                     $scope.curHash += 1;
                 };
                 
-                $scope.path = $location.path();
-                
-                if (!$location.hash()){
-                    $location.hash('go');
-                }
-                                
+                $scope.path = $location.path();             
                 $scope.hash = $location.hash();
 
             }
