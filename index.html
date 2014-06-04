@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <div>Path: {{path}}</div>
+            <div>Hash: {{hash}}</div>
+            
+            <button ng-click="setPath()">Change Path</button>
+            <button ng-click="setHash()">Change Hash</button>
+        </div>
+        
+        <script src="angular.min.js"></script>
+        <script>
+            var myApp = angular.module('myApp', []);
+
+            function myCtrl($scope, $location) {
+                
+                $scope.curPath = 1;
+                $scope.curHash = 1;
+                
+                $scope.setPath = function(){
+                    $location.path('foo' + $scope.curPath);
+                    $scope.path = $location.path();
+                    $scope.curPath += 1;
+                };
+                
+                $scope.setHash = function(){
+                    $location.hash('bar' + $scope.curHash);
+                    $scope.hash = $location.hash();
+                    $scope.curHash += 1;
+                };
+                
+                $scope.path = $location.path();
+                $scope.hash = $location.hash();
+            }
+        </script>
+    </body>    
+</html>
