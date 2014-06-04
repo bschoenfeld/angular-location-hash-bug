@@ -6,6 +6,12 @@
             
             <button ng-click="setPath()">Change Path</button>
             <button ng-click="setHash()">Change Hash</button>
+            
+            <hr/>
+            
+            <div ng-show="working1">Working.</div>
+            <div ng-show="working2">Working..</div>
+            <div ng-show="done">Done<div>
         </div>
         
         <script src="angular.min.js"></script>
@@ -29,8 +35,11 @@
                     $scope.curHash += 1;
                 };
                 
+                $scope.working1 = true;
                 $scope.path = $location.path();
+                $scope.working2 = true;
                 $scope.hash = $location.hash();
+                $scope.done = true;
             }
         </script>
     </body>    
